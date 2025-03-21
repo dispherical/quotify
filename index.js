@@ -13,7 +13,6 @@ const app = new App({
 (async () => {
     app.shortcut('generate_quote', async ({ ack, body, say, client, respond, shortcut }) => {
         await ack();
-        console.log(body.message.text);
         const info = await app.client.users.info({
             user: shortcut.message.user
         })
