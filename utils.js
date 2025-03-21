@@ -53,7 +53,7 @@ async function generateQuoteImage(quoteText, authorUsername, authorNickname) {
   ctx.textAlign = 'right';
   ctx.textBaseline = 'bottom';
 
-  const authorInfo = `${authorNickname} (@${authorUsername})`;
+  const authorInfo = `${authorNickname} (${authorUsername})`;
   ctx.fillText(authorInfo, canvasWidth - 50, canvasHeight - 20);
 
   ctx.font = '16px Roboto';

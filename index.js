@@ -11,13 +11,13 @@ const app = new App({
 });
 
 (async () => {
-    app.shortcut('generate_quote', async ({ ack, body, say, client, respond }) => {
+    app.shortcut('generate_quote', async ({ ack, body, say, client, respond, shortcut }) => {
         await ack();
         console.log(body.message.text);
         const info = await app.client.users.info({
-            user: body.user.id
+            user: shortcut.message.user
         })
-        const imageBuffer = await utils(body.message.text, body.user.username, info.user.real_name);
+        const imageBuffer = await utils(body.message.text, info.user.real_name, info.user.profile.display_name);
 
         const formData = new FormData();
         formData.append('reqtype', 'fileupload');
